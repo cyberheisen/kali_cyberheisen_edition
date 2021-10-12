@@ -3,5 +3,5 @@ An custom script for configuring a newly installed Kali Linux instance
 
 Installation  
 ```
-curl http://xxxx --output ~/Downloads/cyberheisen.sh && chmod +x ~/Downloads/cyberheisen.sh && ~/Downloads/cyberheisen.sh  
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/cyberheisen.sh --output ~/Downloads/cyberheisen.sh && chmod +x ~/Downloads/cyberheisen.sh && ~/Downloads/cyberheisen.sh  
 ```
