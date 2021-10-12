@@ -3,4 +3,5 @@ An custom script for configuring a newly installed Kali Linux instance
 
 Installation  
 ```
-wget http://xxxx && chmod +x && ./
+curl http://xxxx --output ~/Downloads/cyberheisen.sh && chmod +x ~/Downloads/cyberheisen.sh && ~/Downloads/cyberheisen.sh  
+```
