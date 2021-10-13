@@ -2,29 +2,45 @@
 
 ################
 
+###### Initial Setup ######
+SETUPFOLDER="~/cyberheisen
+
+# We need to create a few folders
+printf "Creating setup folder in: %s\n" "$SETUPFOLDER"
+mkdir $SETUPFOLDER
+
 # Update apt repository
+printf "Updating local apt cache and upgrading existing installations\n"
 sudo apt update && apt upgrade -y
 
 # install tools through apt
+printf "Installing software packages through apt\n"
 sudo apt install rlwrap docker.io mingw-w64 virtualenv xrdp
 
-# configure ssh
-echo "Configuring SSH"
-echo "Creating SSH keys"
+### install other tools
+
+#### The Peas ####
+
+
+#### Penelope Shell Handler ####
+
+### configure ssh
+printf "Configuring SSH\n"
+printf "Creating SSH keys\n"
 ssh-keygen -N ""
 mv ~/.ssh/id_rsa.pub authorized_keys
-echo "ssh keys generated - make sure to download and secure the private key"
-echo "Removing password based SSH authentication"
+printf "ssh keys generated - make sure to download and secure the private key\n"
+printf "Removing password based SSH authentication\n"
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 
 # update .zshrc
-echo Configuring Zshell
-echo "backup original Zshell configuraiton files"
+printf Configuring Zshell
+printf "backup original Zshell configuration files\n"
 mv ~/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
-echo "downloading configuration file"
+printf "downloading configuration file\n"
 curl https://raw.githubusercontent.com/cyberheisen/Penetration-Testing-Notes/main/configurations/.zshrc --output ~/.zshrc
 sudo cp ~/.zshrc /root/.zshrc
 
-echo "Cyberheisen configuration complete."
-echo "Make sure to download the private key"
+printf "Cyberheisen configuration complete.\n"
+printf "Make sure to download the private key\n"
