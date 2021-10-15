@@ -13,7 +13,7 @@ mkdir $SETUPFOLDER
 printf "Updating local apt cache and upgrading existing installations\n"
 sudo apt update
 printf "Upgrading packages\n"
-apt -y upgrade
+sudo apt -y upgrade
 
 # install tools through apt
 printf "Installing software packages through apt\n"
