@@ -39,7 +39,7 @@ printf "backup original Zshell configuration files\n"
 mv ~/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
-curl https://raw.githubusercontent.com/cyberheisen/Penetration-Testing-Notes/main/configurations/.zshrc --output ~/.zshrc
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/.zshrc --output ~/.zshrc
 sudo cp ~/.zshrc /root/.zshrc
 
 printf "Cyberheisen configuration complete.\n"
