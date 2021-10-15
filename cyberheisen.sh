@@ -11,11 +11,11 @@ mkdir $SETUPFOLDER
 
 # Update apt repository
 printf "Updating local apt cache and upgrading existing installations\n"
-sudo apt update && apt upgrade -y
+sudo apt update && apt -y upgrade
 
 # install tools through apt
 printf "Installing software packages through apt\n"
-sudo apt install rlwrap docker.io mingw-w64 virtualenv xrdp
+sudo apt -y install rlwrap docker.io mingw-w64 virtualenv xrdp
 
 ### install other tools
 
