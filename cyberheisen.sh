@@ -3,7 +3,7 @@
 ################
 
 ###### Initial Setup ######
-SETUPFOLDER="~/cyberheisen
+SETUPFOLDER="~/cyberheisen"
 
 # We need to create a few folders
 printf "Creating setup folder in: %s\n" "$SETUPFOLDER"
