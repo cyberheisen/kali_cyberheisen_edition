@@ -22,9 +22,9 @@ sudo apt -y install rlwrap docker.io mingw-w64 virtualenv xrdp
 ### install other tools
 # foxyproxy
 printf "Installing FoxyProxy\n"
-curl -L https://addons.mozilla.org/firefox/downloads/file/3616824/foxyproxy_standard-7.5.1-an+fx.xpi --output /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/foxyproxy_standard-7.5.1-an+fx.xpi
+sudo curl -L https://addons.mozilla.org/firefox/downloads/file/3616824/foxyproxy_standard-7.5.1-an+fx.xpi --output /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/foxyproxy@eric.h.jung.xpi
 
-#firefox -install-global-extension $SETUPFOLDER/foxyproxy.xpi
+
 
 #### The Peas ####
 printf "Downloading WinPEAS\n"
