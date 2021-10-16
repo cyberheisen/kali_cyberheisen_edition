@@ -21,13 +21,13 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y -q upgrade
 
 # install tools through apt
 printf "Installing software packages through apt\n"
-sudo DEBIAN_FRONTEND=noninteractive sudo apt -y -q install rlwrap docker.io mingw-w64 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-pip python3-pylint-common python3-requests python3-scapy python3-venv python-pip-whl wine64
+sudo DEBIAN_FRONTEND=noninteractive sudo apt -y -q install rlwrap docker.io mingw-w64 /
+virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-pip python3-pylint-common /
+python3-requests python3-scapy python3-venv python-pip-whl python3-pyftpdlib wine64
 
 ### Webserver/FTPserver 
 printf "Creating webserver/ftp server folder structure\n"
 sudo mkdir -p $WEBSERVER $WEBSERVER/linux $WEBSERVER/windows $WEBSERVER/transfer
-# Let's make it publicly available
-sudo chmod -R 777 $WEBSERVER
 
 ### install other tools
 
