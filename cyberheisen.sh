@@ -6,7 +6,7 @@
 USER="kali"
 HOME="/home/$USER"
 SETUPFOLDER="$HOME/Downloads/cyberheisen"
-DEBIAN_FRONTEND=noninteractive
+
 
 # We need to create a few folders
 printf "Creating setup folder in: %s\n" "$SETUPFOLDER"
@@ -16,11 +16,11 @@ mkdir $SETUPFOLDER && cd $SETUPFOLDER
 printf "Updating local apt cache and upgrading existing installations\n"
 sudo apt update
 printf "Upgrading packages\n"
-sudo apt -y upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt -y -q upgrade
 
 # install tools through apt
 printf "Installing software packages through apt\n"
-sudo apt -y install rlwrap docker.io mingw-w64 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-pip python3-pylint-common python3-requests python3-scapy python3-venv python-pip-whl
+sudo apt -y -q install rlwrap docker.io mingw-w64 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-pip python3-pylint-common python3-requests python3-scapy python3-venv python-pip-whl
 
 ### install other tools
 
