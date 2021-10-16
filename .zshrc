@@ -284,10 +284,13 @@ alias lll='ls -last --color=auto'
 alias nano='nano -m'
 alias refresh='source ~/.zshrc'
 
+
 # Sharing aliases
-alias webserver='sudo python3 -m http.server'
-alias serveshells='sudo python3 -m http.server --directory /usr/share/webshells/'
-alias servewin='sudo python3 -m http.server --directory /usr/share/windows-binaries/'
+alias webserver='sudo python3 -m http.server --directory $WEBSERVER'
+alias webserverhere='sudo python3 -m http.server'
+#alias ftpserver='sudo python3 -m pyftpdlib -p 21 --write --directory $WEBSERVER'
+#alias ftpserverhere='sudo python3 -m ftpdlib -p 21 --write --directory .'
+#alias smbserver
 
 
 ###Custom Functions#####
