@@ -3,7 +3,10 @@
 ################
 
 ###### Initial Setup ######
-SETUPFOLDER="~/Downloads/cyberheisen"
+USER="kali"
+HOME="/home/$USER"
+SETUPFOLDER="$HOME/Downloads/cyberheisen"
+
 
 # We need to create a few folders
 printf "Creating setup folder in: %s\n" "$SETUPFOLDER"
@@ -20,11 +23,6 @@ printf "Installing software packages through apt\n"
 sudo apt -y install rlwrap docker.io mingw-w64 virtualenv xrdp
 
 ### install other tools
-# foxyproxy
-printf "Installing FoxyProxy\n"
-sudo curl -L https://addons.mozilla.org/firefox/downloads/file/3616824/foxyproxy_standard-7.5.1-an+fx.xpi --output /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/foxyproxy@eric.h.jung.xpi
-
-
 
 #### The Peas ####
 printf "Downloading WinPEAS\n"
@@ -34,20 +32,31 @@ sudo mkdir /usr/share/linPEAS
 sudo curl -L https://raw.githubusercontent.com/carlospolop/PEASS-ng/master/linPEAS/linpeas.sh -o /usr/share/linPEAS/linpeas.sh
 sudo chmod +x /usr/share/LinPEAS
 
-
-
 #### Penelope Shell Handler ####
 printf "Installing Penelope Shell Handler\n"
 git clone https://github.com/brightio/penelope.git
 sudo cp ./penelope/penelope.py /sbin 
 chmod +x /sbin/penelope.py
 
+### System Configurations
+
+### Firefox 
+### Extensions
+# foxyproxy
+printf "Installing FoxyProxy with localhost:8080 proxy configuration\n"
+sudo curl -L https://addons.mozilla.org/firefox/downloads/file/3616824/foxyproxy_standard-7.5.1-an+fx.xpi --output /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/foxyproxy@eric.h.jung.xpi
+printf "FoxyProxy Installed"
+
+# Configure Firefox
+printf "Configuring Firefox\n"
+sudo curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output ./mozilla_settings.7z
+7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
 ### configure ssh
 printf "Configuring SSH\n"
 printf "Creating SSH keys\n"
-ssh-keygen -N "" -f ~/.ssh/id_rsa
-cp ~/.ssh/id_rsa.pub authorized_keys
+ssh-keygen -N "" -f $HOME/.ssh/id_rsa
+cp $HOME/.ssh/id_rsa.pub authorized_keys
 printf "ssh keys generated - make sure to download and secure the private key\n"
 printf "Removing password based SSH authentication\n"
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
@@ -55,12 +64,12 @@ sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/
 # update .zshrc
 printf Configuring Zshell
 printf "backup original Zshell configuration files\n"
-mv ~/.zshrc .zshrc.orig.bak
+mv $HOME/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/.zshrc --output ~/.zshrc
-sudo cp ~/.zshrc /root/.zshrc
-source ~/.zshrc
+sudo cp $HOME/.zshrc /root/.zshrc
+source $HOME/.zshrc
 
 printf "Cyberheisen configuration complete.\n"
 printf "Make sure to download the private key\n"
