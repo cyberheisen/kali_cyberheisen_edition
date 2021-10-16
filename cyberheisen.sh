@@ -62,8 +62,8 @@ mv $HOME/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/.zshrc --output ~/.zshrc
-sudo cp $HOME/.zshrc /root/.zshrc
 source $HOME/.zshrc
+sudo cp $HOME/.zshrc /root/.zshrc
 
 # unzip rockyou.txt
 printf "Unzipping rockyou.txt\n"
@@ -73,7 +73,7 @@ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 printf "Configuring SSH\n"
 printf "Creating SSH keys\n"
 ssh-keygen -N "" -f $HOME/.ssh/id_rsa
-cp $HOME/.ssh/id_rsa.pub authorized_keys
+cp $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys
 printf "ssh keys generated\n"
 printf "Removing password based SSH authentication\n"
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
