@@ -20,7 +20,7 @@ sudo apt -y upgrade
 
 # install tools through apt
 printf "Installing software packages through apt\n"
-sudo apt -y install rlwrap docker.io mingw-w64 virtualenv xrdp
+sudo apt -y install rlwrap docker.io mingw-w64 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-pip python3-pylint-common python3-requests python3-scapy python3-venv python-pip-whl
 
 ### install other tools
 
@@ -38,6 +38,9 @@ git clone https://github.com/brightio/penelope.git
 sudo cp ./penelope/penelope.py /sbin 
 chmod +x /sbin/penelope.py
 
+#### Evil-WinRM
+sudo gem install evil-winrm
+
 ### System Configurations
 
 ### Firefox 
@@ -52,17 +55,8 @@ printf "Configuring Firefox\n"
 sudo curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output ./mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
-### configure ssh
-printf "Configuring SSH\n"
-printf "Creating SSH keys\n"
-ssh-keygen -N "" -f $HOME/.ssh/id_rsa
-cp $HOME/.ssh/id_rsa.pub authorized_keys
-printf "ssh keys generated - make sure to download and secure the private key\n"
-printf "Removing password based SSH authentication\n"
-sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
-
 # update .zshrc
-printf Configuring Zshell
+printf "Configuring Zshell\n"
 printf "backup original Zshell configuration files\n"
 mv $HOME/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
@@ -71,5 +65,18 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
 sudo cp $HOME/.zshrc /root/.zshrc
 source $HOME/.zshrc
 
+# unzip rockyou.txt
+printf "Unzipping rockyou.txt\n"
+sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+
+### configure ssh
+printf "Configuring SSH\n"
+printf "Creating SSH keys\n"
+ssh-keygen -N "" -f $HOME/.ssh/id_rsa
+cp $HOME/.ssh/id_rsa.pub authorized_keys
+printf "ssh keys generated\n"
+printf "Removing password based SSH authentication\n"
+sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 printf "Cyberheisen configuration complete.\n"
-printf "Make sure to download the private key\n"
+
+printf "Make sure to download the private key!!!!\n"
