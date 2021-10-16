@@ -1,5 +1,5 @@
 # kali_cyberheisen_edition
-An custom script for configuring a newly installed Kali Linux instance
+An custom script for configuring a newly installed Kali Linux instance to my liking.
 
 Installation  
 ```
