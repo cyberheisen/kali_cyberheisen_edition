@@ -279,7 +279,7 @@ fi
 alias downloads='cd ~/Downloads'
 
 
-$ command aliases
+# command aliases
 alias lll='ls -last --color=auto'
 alias nano='nano -m'
 alias refresh='source ~/.zshrc'
