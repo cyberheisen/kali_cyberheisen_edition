@@ -274,10 +274,17 @@ if [ "$RECORDING" = "true" ]
     RPROMPT="%F{green}[%D %*]"
 fi 
 
-###Custom Aliases
+###Custom aliases
+# folder aliases
+alias downloads='cd ~/Downloads'
+
+
+$ command aliases
 alias lll='ls -last --color=auto'
 alias nano='nano -m'
 alias refresh='source ~/.zshrc'
+
+# Sharing aliases
 alias webserver='sudo python3 -m http.server'
 alias serveshells='sudo python3 -m http.server --directory /usr/share/webshells/'
 alias servewin='sudo python3 -m http.server --directory /usr/share/windows-binaries/'
