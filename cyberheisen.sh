@@ -6,7 +6,7 @@
 USER="kali"
 HOME="/home/$USER"
 SETUPFOLDER="$HOME/Downloads/cyberheisen"
-
+DEBIAN_FRONTEND=noninteractive
 
 # We need to create a few folders
 printf "Creating setup folder in: %s\n" "$SETUPFOLDER"
