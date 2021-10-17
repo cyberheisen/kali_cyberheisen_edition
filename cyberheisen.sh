@@ -45,16 +45,16 @@ sudo ln -s /usr/share/linPEAS/linpeas.sh /var/www/server/linux/linpeas.sh
 #### Penelope Shell Handler ####
 printf "Installing Penelope Shell Handler\n"
 git clone https://github.com/brightio/penelope.git
-sudo cp ./penelope/penelope.py /sbin 
-chmod +x /sbin/penelope.py
+sudo cp ./penelope/penelope.py /sbin/penelope 
+sudo chmod +x /sbin/penelope
 
 #### Evil-WinRM
 sudo gem install evil-winrm
 
 ### Web Server Links
 printf "Creating additional necessary file links for the webserver\n"
-ln -s /bin/nc $WEBSERVER/linux/nc
-ln -s /usr/share/windows-binaries $WEBSERVER/windows/tools
+sudo ln -s /bin/nc $WEBSERVER/linux/nc
+sudo ln -s /usr/share/windows-binaries $WEBSERVER/windows/tools
 
 ### System Configurations
 
@@ -67,7 +67,7 @@ printf "FoxyProxy Installed"
 
 ### Configure Firefox
 printf "Configuring Firefox\n"
-sudo curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output ./mozilla_settings.7z
+sudo curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
 ### update .zshrc
@@ -98,5 +98,4 @@ printf "ssh keys generated\n"
 printf "Removing password based SSH authentication\n"
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 printf "Cyberheisen configuration complete.\n"
-
 printf "Make sure to download the private key!!!!\n"
