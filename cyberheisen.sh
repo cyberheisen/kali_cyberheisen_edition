@@ -3,10 +3,10 @@
 ################
 
 ###### Initial Setup ######
-USER="kali"
-HOME="/home/$USER"
-SETUPFOLDER="$HOME/Downloads/cyberheisen"
-WEBSERVER="/var/www/server"
+export USER="kali"
+export HOME="/home/$USER"
+export SETUPFOLDER="$HOME/Downloads/cyberheisen"
+export WEBSERVER="/var/www/server"
 
 
 # We need to create a few folders
