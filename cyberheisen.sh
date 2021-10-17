@@ -70,7 +70,11 @@ printf "Configuring Firefox\n"
 sudo curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
-### update .zshrc
+### Configure Flameshot
+printf "Configuring print scr to execute flameshot\n"
+sed -i 's@<property name="Print" type="string" value="/usr/share/kali-themes/xfce4-screenshooter"/>@<property name="Print" type="string" value="flameshot gui"/>@g' $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+
+### Configure .zshrc
 printf "Configuring Zshell\n"
 printf "backup original Zshell configuration files\n"
 mv $HOME/.zshrc .zshrc.orig.bak
