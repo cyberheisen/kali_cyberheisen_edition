@@ -316,7 +316,7 @@ function create_folders(){
     read TARGET
     mkdir -p ~/Targets/$TARGET/loot
     mkdir -p ~/Targets/$TARGET/exploits
-    mkdir -p ~/Targets/$TARGET/recon
+    mkdir -p ~/Targets/$TARGET/scans
     alias target='cd ~/Targets/$TARGET'
     EXPORT TARGET=$TARGET
     }
