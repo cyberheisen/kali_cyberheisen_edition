@@ -318,7 +318,7 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/exploits
     mkdir -p ~/Targets/$TARGET/recon
     alias target='cd ~/Targets/$TARGET'
-    EXPORT $TARGET
+    EXPORT TARGET=$TARGET
     }
 
 # Add Host Record
