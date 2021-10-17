@@ -281,8 +281,9 @@ alias downloads='cd ~/Downloads'
 
 # command aliases
 alias lll='ls -last --color=auto'
-alias nano='nano -m'
+alias nano='nano -m'  #start nano with mouse support
 alias refresh='source ~/.zshrc'
+alias here='thunar .' #open gui file manager in current directory from terminal
 
 
 # Sharing aliases
@@ -318,7 +319,7 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/exploits
     mkdir -p ~/Targets/$TARGET/scans
     alias target='cd ~/Targets/$TARGET'
-    EXPORT TARGET=$TARGET
+    export TARGET=$TARGET
     }
 
 # Add Host Record
