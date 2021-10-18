@@ -71,8 +71,12 @@ curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resourc
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
 ### Configure Flameshot
-printf "Configuring print scr to execute flameshot\n"
-sed -i 's@<property name="Print" type="string" value="/usr/share/kali-themes/xfce4-screenshooter"/>@<property name="Print" type="string" value="flameshot gui"/>@g' $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+printf "Configuring Flameshot\n"
+printf ".....'print scr' key to execute flameshot\n"
+printf ".....screenshots automatically saved to ~/Pictures/Screenshots folder, and to clipboard\n"
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/flameshot_settings.7z --output $SETUPFOLDER/flameshot_settings.7z
+7z x $SETUPFOLDER/flameshot_settings.7z -o$HOME/.config -aoa
+mkdir -p $HOME/Pictures/Screenshots
 
 ### Configure .zshrc
 printf "Configuring Zshell\n"
@@ -83,6 +87,11 @@ printf "downloading configuration file\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/.zshrc --output ~/.zshrc
 source $HOME/.zshrc
 sudo cp $HOME/.zshrc /root/.zshrc
+
+### Configure xfce4
+printf "Configuring xfce4 Settings\n"
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
+7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
 
 ### Wordlists
 # unzip rockyou.txt
