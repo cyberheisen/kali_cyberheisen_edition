@@ -290,9 +290,10 @@ alias here='thunar .' #open gui file manager in current directory from terminal
 # Sharing aliases
 alias webserver='sudo python3 -m http.server --directory $WEBSERVER'
 alias webserverhere='sudo python3 -m http.server'
+alias smbserver='impacket-smbserver -smb2support SERVER $WEBSERVER'
+alias smbserverhere='impacket-smbserver -smb2support SERVER .'
 #alias ftpserver='sudo python3 -m pyftpdlib -p 21 --write --directory $WEBSERVER'
 #alias ftpserverhere='sudo python3 -m ftpdlib -p 21 --write --directory .'
-#alias smbserver
 
 
 ###Custom Functions#####
