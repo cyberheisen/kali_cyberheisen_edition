@@ -32,7 +32,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
 * OneRuletoRuleThemAll is downloaded to the `/usr/share/haschat/rules` folder  
 * SSH keys are generated and SSH password authentication disabled  
 
-## Commands  
+## Custom Commands  
 * **add_host**: Adds a hostname record to the host file 
 * **create_folders**: Creates a default folder structure in the home directory to store information regarding a particular target. 
 ```
