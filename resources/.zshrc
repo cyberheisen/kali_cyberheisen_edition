@@ -260,6 +260,7 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 ######CUSTOMIZATIONS######
+export WEBSERVER='/var/www/server'
 
 #Overwrite the left prompt
 PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
@@ -309,7 +310,7 @@ function out_ip(){
     
 # Create target folders
 function create_folders(){
-    if [ ! -d "~/Targets" ]
+    if [ ! -d $(echo ~/Targets) ]
     then
         mkdir ~/Targets
     fi
@@ -318,6 +319,7 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/loot
     mkdir -p ~/Targets/$TARGET/exploits
     mkdir -p ~/Targets/$TARGET/scans
+	mkdir -p ~/Targets/$TARGET/ssh_keys
     alias target='cd ~/Targets/$TARGET'
     export TARGET=$TARGET
     }
@@ -330,7 +332,6 @@ function add_host(){
     read ip
     sudo bash -c "echo $ip    $hostname >> /etc/hosts"
     }
-
     
 # Record terminal sessions
 function record(){
