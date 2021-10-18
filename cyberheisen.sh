@@ -91,7 +91,6 @@ mv $HOME/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/.zshrc --output ~/.zshrc
-source $HOME/.zshrc
 sudo cp $HOME/.zshrc /root/.zshrc
 
 ### Configure xfce4
