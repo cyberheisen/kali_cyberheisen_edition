@@ -260,9 +260,6 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 ######CUSTOMIZATIONS######
-### Custom Variables
-
-WEBSERVER='/var/www/server'
 
 #Overwrite the left prompt
 PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
@@ -284,8 +281,9 @@ alias downloads='cd ~/Downloads'
 
 # command aliases
 alias lll='ls -last --color=auto'
-alias nano='nano -m'
+alias nano='nano -m'  #start nano with mouse support
 alias refresh='source ~/.zshrc'
+alias here='thunar .' #open gui file manager in current directory from terminal
 
 
 # Sharing aliases
@@ -311,7 +309,7 @@ function out_ip(){
     
 # Create target folders
 function create_folders(){
-    if [ ! -d $(echo ~/Targets) ]
+    if [ ! -d "~/Targets" ]
     then
         mkdir ~/Targets
     fi
@@ -320,9 +318,8 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/loot
     mkdir -p ~/Targets/$TARGET/exploits
     mkdir -p ~/Targets/$TARGET/scans
-	mkdir -p ~/Targets/$TARGET/ssh_keys
     alias target='cd ~/Targets/$TARGET'
-    export $TARGET
+    export TARGET=$TARGET
     }
 
 # Add Host Record
