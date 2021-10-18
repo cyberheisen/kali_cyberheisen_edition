@@ -34,7 +34,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
 
 ## Commands  
 * **add_host**: Adds a hostname record to the host file 
-* create_folders: Creates a default folder structure in the home directory to store information regarding a particular target. 
+* **create_folders**: Creates a default folder structure in the home directory to store information regarding a particular target. 
 ```
 /home/<user>  
     ./Targets  
@@ -51,7 +51,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
 * **nano**: starts nano with mouse support  
 * **out_ip**: Provides your public IP address  
 * **record**: enables terminal logging through the script command.  Logs are saved with date and timestamps in the home directory.    
-* **refresh**: refreshes the .zshrc file  
+* **refresh**: reloads the .zshrc file  
 * **smbserver**: shares the web server through smb  
 * **smbserverhere**: shares the local directory through smb  
 * **webserver**: shares the web server through port 8080 by default.  The command can be executed as webserver <port> to specify a port.  
