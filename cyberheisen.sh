@@ -110,6 +110,7 @@ sudo curl -L https://raw.githubusercontent.com/NotSoSecure/password_cracking_rul
 ### configure ssh
 printf "Configuring SSH\n"
 printf "Creating SSH keys\n"
+mkdir -p $HOME/.ssh
 ssh-keygen -N "" -f $HOME/.ssh/id_rsa
 cp $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys
 printf "ssh keys generated\n"
