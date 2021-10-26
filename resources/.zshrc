@@ -341,6 +341,12 @@ function add_host(){
     sudo bash -c "echo $ip    $hostname >> /etc/hosts"
     }
     
+# Flush all Host Records
+function flush_hosts(){
+    printf "Resetting host file to original\n"
+    sudo cp /etc/hosts.orig /etc/hosts
+    }
+
 # Record terminal sessions
 function record(){
     if [ "$RECORDING" != "true" ]
