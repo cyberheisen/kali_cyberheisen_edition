@@ -45,6 +45,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
             ./ssh_keys   
 ```
 * **downloads**: changes to the ~/Downloads directory  
+* **flush_hosts**: removes any added host entries in the the /etc/hosts file by returning it back to it's original install state.
 * **here**: opens the current directory in the xfce4 file manager from the terminal     
 * **in_ip**: Provides the current IP address for the eth0 interface  
 * **lll**: directory listing with hidden files and access permissions, displayed in long listing format and sorted by time (newest to oldest)    
