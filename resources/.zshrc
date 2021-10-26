@@ -276,6 +276,12 @@ if [ "$RECORDING" = "true" ]
 fi 
 
 ###Custom aliases
+
+# Load .bash_aliases, if it exists
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+
 # folder aliases
 alias downloads='cd ~/Downloads'
 
@@ -321,7 +327,8 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/exploits
     mkdir -p ~/Targets/$TARGET/scans
 	mkdir -p ~/Targets/$TARGET/ssh_keys
-    alias target='cd ~/Targets/$TARGET'
+    echo alias target=\'cd ~/Targets/`echo $TARGET`\' > ~/.bash_aliases
+    source ~/.bash_aliases
     export TARGET=$TARGET
     }
 
