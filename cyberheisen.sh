@@ -58,6 +58,10 @@ sudo ln -s /usr/share/windows-binaries $WEBSERVER/windows/tools
 
 ### System Configurations
 
+### /etc/hosts
+printf "Backing up the /etc/hosts file\n"
+sudo cp /etc/hosts /etc/hosts.orig
+
 ### Firefox 
 ### Extensions
 # foxyproxy
