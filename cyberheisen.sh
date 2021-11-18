@@ -48,6 +48,12 @@ git clone https://github.com/brightio/penelope.git
 sudo cp ./penelope/penelope.py /sbin/penelope 
 sudo chmod +x /sbin/penelope
 
+#### Nmap Output Parser ####
+printf "Installing Nmap Output Parser\n"
+git clone https://github.com/ernw/nmap-parse-output.git
+sudo cp ./nmap-parse-output/nmap-parse-output /sbin/nmap-parse-output 
+sudo chmod +x /sbin/nmap-parse-output
+
 #### Evil-WinRM
 sudo gem install evil-winrm
 
