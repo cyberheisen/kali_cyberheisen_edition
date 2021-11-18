@@ -20,7 +20,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/1118
       /usr/share/windows-binaries
   ./transfer - empty folder used to transfer loot
   ```
-
+* Qterminal tabs will open in the current working directory
 * The Firefox FoxyProxy extension is installed and configured for Burp on localhost:8080  
 * The Firefox bookmarks toolbar is configured with relevant bookmarks  
 * BurpSuite is configured to start WITHOUT the proxy intercept enabled   
