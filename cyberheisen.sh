@@ -109,6 +109,11 @@ printf "Configuring xfce4 Settings\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
 7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
 
+### Configure Qterminal
+printf "Configuring Qterminal\n"
+sed -i "s/UseCWD=false/UseCWD=true/g" ~/.config/qterminal.org/qterminal.ini
+
+
 ### Wordlists
 # unzip rockyou.txt
 printf "Unzipping rockyou.txt\n"
