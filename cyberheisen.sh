@@ -61,6 +61,7 @@ sudo gem install evil-winrm
 printf "Creating additional necessary file links for the webserver\n"
 sudo ln -s /bin/nc $WEBSERVER/linux/nc
 sudo ln -s /usr/share/windows-binaries $WEBSERVER/windows/tools
+chmod -R 777 /var/www/server
 
 ### System Configurations
 
