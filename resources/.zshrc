@@ -263,10 +263,12 @@ fi
 export WEBSERVER='/var/www/server'
 
 #Overwrite the left prompt
-PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+#PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-%F{red}[$TARGET]%B%F{reset}-[%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+
 
 # Overwrite the right prompt with the date and time stamp.
-RPROMPT="%F{green}[%D %*]"
+#RPROMPT="%F{green}[%D %*]"
 
 #WAIT...are we recording?
 if [ "$RECORDING" = "true" ]
@@ -315,6 +317,15 @@ alias smbserverhere='impacket-smbserver -smb2support SERVER .'
 
 ###Custom Functions#####
 
+# Enable / Disable Right Prompt
+function prompt_time(){
+    if [ "$1" != "off" ]
+    then  
+        RPROMPT="%F{green}[%D %*]"
+    else
+        RPROMPT=""
+    fi
+}
 
 # Get internal IP address
 function in_ip(){
