@@ -9,7 +9,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/1118
 ### RELEASE NOTES ###
 
 ## Features ## 
-* The shell prompt contains a date and timestamp.  It has also been modified with coloring to differentiate from user and host names.    
+* The shell prompt has been modified with coloring to differentiate from user and host names.  It also displays the targeted host and has optional date and time stamps.  
 
 * Web server root created in `/var/www/server`   
   ```
@@ -45,16 +45,25 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/1118
             ./ssh_keys   
 ```
 * **downloads**: changes to the ~/Downloads directory  
+* **exploits**: changes to the $TARGET/exploits folder
 * **flush_hosts**: removes any added host entries in the the /etc/hosts file by returning it back to it's original install state.
 * **here**: opens the current directory in the xfce4 file manager from the terminal     
 * **in_ip**: Provides the current IP address for the eth0 interface  
 * **lll**: directory listing with hidden files and access permissions, displayed in long listing format and sorted by time (newest to oldest)    
-* **nano**: starts nano with mouse support  
-* **out_ip**: Provides your public IP address  
+* **loot**: changes to the $TARGET/loot folder.
+* **nano**: starts nano with mouse support.  
+* **ports**: if an nmap scan results xml exists in the Target's scan folder, this command will display the open ports.
+* **prompt_time**: Enables the date and time stamp at the terminal prompt.  To disable, execute the command with the "off" argument.
+* **out_ip**: Provides your public IP address.  
 * **record**: enables terminal logging through the script command.  Logs are saved with date and timestamps in the home directory.    
-* **refresh**: reloads the .zshrc file  
-* **smbserver**: shares the web server through smb  
-* **smbserverhere**: shares the local directory through smb  
+* **refresh**: reloads the .zshrc file.  
+* **scan**: Performs a full TCP port nmap -A scan on the target host and outputs results to the target's scan folder.
+* **scans**: changes to the $TARGET/scans folder.
+* **ssh_keys**: changes to the $TARGET/ssh_keys folder.
+* **smbserver**: shares the web server through smb.  
+* **smbserverhere**: shares the local directory through smb.  
+* **virtualenv2**: creates and starts a python2 virtual environment in the current folder.
+* **virtualenv3**: creates and starts a python3 virtual environment in the current folder.
 * **webserver**: shares the web server through port 8080 by default.  The command can be executed as webserver <port> to specify a port.  
 * **webserverhere**: shares the local directory through port 8080 by default.  The command can be executed as webserver <port> to specify a port.    
   
