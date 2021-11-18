@@ -78,20 +78,20 @@ printf "FoxyProxy Installed"
 
 ### Configure Firefox
 printf "Configuring Firefox\n"
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
 ### Configure Burp
 printf "Configuring Burpsuite\n"
 printf "....Intercept will no longer be enabled at startup"
 mkdir -p ~/.config/burpsuite
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
 
 ### Configure Flameshot
 printf "Configuring Flameshot\n"
 printf ".....'print scr' key to execute flameshot\n"
 printf ".....screenshots automatically saved to ~/Pictures/Screenshots folder, and to clipboard\n"
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/flameshot_settings.7z --output $SETUPFOLDER/flameshot_settings.7z
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/flameshot_settings.7z --output $SETUPFOLDER/flameshot_settings.7z
 7z x $SETUPFOLDER/flameshot_settings.7z -o$HOME/.config -aoa
 mkdir -p $HOME/Pictures/Screenshots
 
@@ -101,12 +101,12 @@ printf "backup original Zshell configuration files\n"
 mv $HOME/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/.zshrc --output ~/.zshrc
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/.zshrc --output ~/.zshrc
 sudo cp $HOME/.zshrc /root/.zshrc
 
 ### Configure xfce4
 printf "Configuring xfce4 Settings\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
 7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
 
 ### Wordlists
