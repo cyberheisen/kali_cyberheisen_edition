@@ -295,8 +295,8 @@ alias refresh='source ~/.zshrc'
 alias here='thunar .' #open gui file manager in current directory from terminal
 alias scan='nmap -A -p- -Pn -vvv -oA ~/Targets/$TARGET/scans/$TARGET $TARGET'
 alias ports='/sbin/nmap-parse-output-master/nmap-parse-output ~/Targets/$TARGET/scans/$TARGET.xml ports'
-virtualenv2='virtualenv -p /bin/python2 ./python2venv && source ./python2venv/bin/activate
-virtualenv3='virtualenv -p /bin/python3 ./python3venv && source ./python3venv/bin/activate
+alias virtualenv2='virtualenv -p /bin/python2 ./python2venv && source ./python2venv/bin/activate
+alias virtualenv3='virtualenv -p /bin/python3 ./python3venv && source ./python3venv/bin/activate
 
 # Target folder aliases
 alias exploits='cd /home/kali/Targets/$TARGET/exploits'
@@ -348,7 +348,7 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/loot
     mkdir -p ~/Targets/$TARGET/exploits
     mkdir -p ~/Targets/$TARGET/scans
-	mkdir -p ~/Targets/$TARGET/ssh_keys
+    mkdir -p ~/Targets/$TARGET/ssh_keys
     echo alias target=\'cd ~/Targets/`echo $TARGET`\' > ~/.bash_aliases
     source ~/.bash_aliases
     export TARGET=$TARGET
