@@ -61,6 +61,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/1118
 * **refresh**: reloads the .zshrc file.  
 * **scan**: Performs a full TCP port nmap -A scan on the target host and outputs results to the target's scan folder.
 * **scans**: changes to the $TARGET/scans folder.
+* **set_target**: Set the TARGET variable.  Used as `set_target <host>`
 * **ssh_keys**: changes to the $TARGET/ssh_keys folder.
 * **smbserver**: shares the web server through smb.  
 * **smbserverhere**: shares the local directory through smb.
