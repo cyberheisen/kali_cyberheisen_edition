@@ -297,7 +297,7 @@ alias nano='nano -m'  #start nano with mouse support
 alias refresh='source ~/.zshrc'
 alias here='thunar .' #open gui file manager in current directory from terminal
 alias scan='nmap -A -p- -Pn -vvv -oA ~/Targets/$TARGET/scans/$TARGET $TARGET'
-alias ports='/sbin/nmap-parse-output-master/ ~/Targets/$TARGET/scans/$TARGET.xml ports'
+alias ports='/sbin/nmap-parse-output ~/Targets/$TARGET/scans/$TARGET.xml ports'
 alias virtualenv2='virtualenv -p /bin/python2 ./python2venv && source ./python2venv/bin/activate
 alias virtualenv3='virtualenv -p /bin/python3 ./python3venv && source ./python3venv/bin/activate
 
