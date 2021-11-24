@@ -332,11 +332,16 @@ function in_ip(){
     ifconfig eth0 | grep netmask | tr -s ' ' | cut -d ' ' -f 3
     }
     
+# Get tunnel IP address
+function tun_ip(){
+    ifconfig tun0 | grep netmask | tr -s ' ' | cut -d ' ' -f 3
+    }
+    
 # Get external IP address
 function out_ip(){
     curl http://ifconfig.co
     }
-    
+      
 # Create target folders
 function create_folders(){
     if [ ! -d $(echo ~/Targets) ]
