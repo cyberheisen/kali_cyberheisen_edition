@@ -63,7 +63,8 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/1118
 * **scans**: changes to the $TARGET/scans folder.
 * **ssh_keys**: changes to the $TARGET/ssh_keys folder.
 * **smbserver**: shares the web server through smb.  
-* **smbserverhere**: shares the local directory through smb.  
+* **smbserverhere**: shares the local directory through smb.
+* **tun_ip**: Provides the current IP address for the tun0 interface
 * **virtualenv2**: creates and starts a python2 virtual environment in the current folder.
 * **virtualenv3**: creates and starts a python3 virtual environment in the current folder.
 * **webserver**: shares the web server through port 8080 by default.  The command can be executed as webserver <port> to specify a port.  
