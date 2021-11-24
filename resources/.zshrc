@@ -262,6 +262,9 @@ fi
 ######CUSTOMIZATIONS######
 export WEBSERVER='/var/www/server'
 
+# Load dynamic variables
+source ~/.TARGET
+
 #Overwrite the left prompt
 #PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-%F{red}[$TARGET]%B%F{reset}-[%(6~.%-1~/…/%4~.%5~)]%b%F{%(#.blue.green)}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
@@ -356,7 +359,13 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/ssh_keys
     echo alias target=\'cd ~/Targets/`echo $TARGET`\' > ~/.bash_aliases
     source ~/.bash_aliases
-    export TARGET=$TARGET
+    echo TARGET=$TARGET > ~/.TARGET
+    }
+    
+# Manually set the TARGET variable
+function set_target(){
+    echo TARGET=$1 > ~/.TARGET
+    source ~/.TARGET
     }
 
 # Add Host Record
