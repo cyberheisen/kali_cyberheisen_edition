@@ -16,6 +16,8 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/1118
   ./linux - includes links to commonly used Linux tools  
       /LinPEAS  
       ./nc  
+      ./pspy32
+      ./pspy64
   ./windows - includes links to commonly used Windows tools  
       /usr/share/windows-binaries
   ./transfer - empty folder used to transfer loot
