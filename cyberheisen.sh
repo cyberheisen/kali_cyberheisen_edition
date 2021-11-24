@@ -113,6 +113,10 @@ printf "downloading configuration file\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/.zshrc --output ~/.zshrc
 sudo cp $HOME/.zshrc /root/.zshrc
 
+### Create Dynamic Target File
+printf "Creating ~./TARGET file\n"
+touch ~/.TARGET
+
 ### Configure xfce4
 printf "Configuring xfce4 Settings\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
