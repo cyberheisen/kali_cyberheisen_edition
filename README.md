@@ -53,7 +53,6 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
 * **out_ip**: Provides your public IP address  
 * **record**: enables terminal logging through the script command.  Logs are saved with date and timestamps in the home directory.    
 * **refresh**: reloads the .zshrc file  
-* **set_target**: Set the TARGET variable.  Used as `set_target <host>`
 * **smbserver**: shares the web server through smb  
 * **smbserverhere**: shares the local directory through smb  
 * **webserver**: shares the web server through port 8080 by default.  The command can be executed as webserver <port> to specify a port.  
