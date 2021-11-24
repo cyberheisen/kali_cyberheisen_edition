@@ -82,6 +82,8 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/1118
 * krb5-user  
 * LinPEAS  
 * mingw-w64  
+* pspy32
+* pspy64
 * python-pip-whl  
 * python3-pip  
 * python3-requests  
