@@ -22,7 +22,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y -q upgrade
 # install tools through apt
 printf "Installing software packages through apt\n"
 sudo DEBIAN_FRONTEND=noninteractive apt -y -q install rlwrap docker.io mingw-w64 \
-virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-pip python3-pylint-common \
+virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-dev python3-pip python3-pylint-common \
 python3-requests python3-scapy python3-venv python-pip-whl python3-pyftpdlib wine64
 
 ### Webserver/FTPserver 
@@ -57,6 +57,10 @@ sudo ln -s /bin/nc $WEBSERVER/linux/nc
 sudo ln -s /usr/share/windows-binaries $WEBSERVER/windows/tools
 
 ### System Configurations
+
+### Set Python3 as default
+printf "Configuring Python3 as the default python interpreter"
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 ### /etc/hosts
 printf "Backing up the /etc/hosts file\n"
