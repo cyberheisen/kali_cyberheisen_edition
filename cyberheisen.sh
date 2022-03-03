@@ -23,7 +23,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y -q upgrade
 printf "Installing software packages through apt\n"
 sudo DEBIAN_FRONTEND=noninteractive apt -y -q install rlwrap docker.io mingw-w64 \
 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-dev python3-pip python3-pylint-common \
-python3-requests python3-scapy python3-venv python-pip-whl python3-pyftpdlib wine64
+python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib wine64
+
 
 ### Webserver/FTPserver 
 printf "Creating webserver/ftp server folder structure\n"
@@ -48,13 +49,29 @@ git clone https://github.com/brightio/penelope.git
 sudo cp ./penelope/penelope.py /sbin/penelope 
 sudo chmod +x /sbin/penelope
 
+#### Nmap Output Parser ####
+printf "Installing Nmap Output Parser\n"
+git clone https://github.com/ernw/nmap-parse-output.git
+sudo cp ./nmap-parse-output/nmap-parse-output /sbin/nmap-parse-output 
+sudo chmod +x /sbin/nmap-parse-output
+
 #### Evil-WinRM
 sudo gem install evil-winrm
+
+#### Pspy
+printf "installing pspy\n"
+sudo mkdir /usr/share/pspy
+sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 --output /usr/share/pspy/pspy32
+sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 --output /usr/share/pspy/pspy64
+sudo chmod 755 /usr/share/pspy 
+sudo ln -s /usr/share/pspy/pspy32 $WEBSERVER/linux/pspy32
+sudo ln -s /usr/share/pspy/pspy64 $WEBSERVER/linux/pspy64
 
 ### Web Server Links
 printf "Creating additional necessary file links for the webserver\n"
 sudo ln -s /bin/nc $WEBSERVER/linux/nc
 sudo ln -s /usr/share/windows-binaries $WEBSERVER/windows/tools
+chmod -R 777 /var/www/server
 
 ### System Configurations
 
@@ -75,20 +92,20 @@ printf "FoxyProxy Installed"
 
 ### Configure Firefox
 printf "Configuring Firefox\n"
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
 ### Configure Burp
 printf "Configuring Burpsuite\n"
 printf "....Intercept will no longer be enabled at startup"
 mkdir -p ~/.config/burpsuite
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
 
 ### Configure Flameshot
 printf "Configuring Flameshot\n"
 printf ".....'print scr' key to execute flameshot\n"
 printf ".....screenshots automatically saved to ~/Pictures/Screenshots folder, and to clipboard\n"
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/flameshot_settings.7z --output $SETUPFOLDER/flameshot_settings.7z
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/flameshot_settings.7z --output $SETUPFOLDER/flameshot_settings.7z
 7z x $SETUPFOLDER/flameshot_settings.7z -o$HOME/.config -aoa
 mkdir -p $HOME/Pictures/Screenshots
 
@@ -98,13 +115,22 @@ printf "backup original Zshell configuration files\n"
 mv $HOME/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/.zshrc --output ~/.zshrc
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/.zshrc --output ~/.zshrc
 sudo cp $HOME/.zshrc /root/.zshrc
+
+### Create Dynamic Target File
+printf "Creating ~./TARGET file\n"
+touch ~/.TARGET
 
 ### Configure xfce4
 printf "Configuring xfce4 Settings\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
 7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
+
+### Configure Qterminal
+printf "Configuring Qterminal\n"
+sed -i "s/UseCWD=false/UseCWD=true/g" ~/.config/qterminal.org/qterminal.ini
+
 
 ### Wordlists
 # unzip rockyou.txt

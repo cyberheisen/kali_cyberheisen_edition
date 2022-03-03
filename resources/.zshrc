@@ -262,11 +262,16 @@ fi
 ######CUSTOMIZATIONS######
 export WEBSERVER='/var/www/server'
 
+# Load dynamic variables
+source ~/.TARGET
+
 #Overwrite the left prompt
-PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+#PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-%F{red}[$TARGET]%B%F{reset}-[%(6~.%-1~/…/%4~.%5~)]%b%F{%(#.blue.green)}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+
 
 # Overwrite the right prompt with the date and time stamp.
-RPROMPT="%F{green}[%D %*]"
+#RPROMPT="%F{green}[%D %*]"
 
 #WAIT...are we recording?
 if [ "$RECORDING" = "true" ]
@@ -291,6 +296,17 @@ alias lll='ls -last --color=auto'
 alias nano='nano -m'  #start nano with mouse support
 alias refresh='source ~/.zshrc'
 alias here='thunar .' #open gui file manager in current directory from terminal
+alias scan='nmap -A -p- -Pn -vvv -oA ~/Targets/$TARGET/scans/$TARGET $TARGET'
+alias ports='/sbin/nmap-parse-output ~/Targets/$TARGET/scans/$TARGET.xml ports'
+alias virtualenv2='virtualenv -p /bin/python2 ./python2venv && source ./python2venv/bin/activate
+alias virtualenv3='virtualenv -p /bin/python3 ./python3venv && source ./python3venv/bin/activate
+
+# Target folder aliases
+alias exploits='cd /home/kali/Targets/$TARGET/exploits'
+alias loot='cd /home/kali/Targets/$TARGET/loot'
+alias scans='cd /home/kali/Targets/$TARGET/scans'
+alias ssh_keys='cd /home/kali/Targets/$TARGET/ssh_keys'
+
 
 
 # Sharing aliases
@@ -304,17 +320,31 @@ alias smbserverhere='impacket-smbserver -smb2support SERVER .'
 
 ###Custom Functions#####
 
+# Enable / Disable Right Prompt
+function prompt_time(){
+    if [ "$1" != "off" ]
+    then  
+        RPROMPT="%F{green}[%D %*]"
+    else
+        RPROMPT=""
+    fi
+}
 
 # Get internal IP address
 function in_ip(){
     ifconfig eth0 | grep netmask | tr -s ' ' | cut -d ' ' -f 3
     }
     
+# Get tunnel IP address
+function tun_ip(){
+    ifconfig tun0 | grep netmask | tr -s ' ' | cut -d ' ' -f 3
+    }
+    
 # Get external IP address
 function out_ip(){
     curl http://ifconfig.co
     }
-    
+      
 # Create target folders
 function create_folders(){
     if [ ! -d $(echo ~/Targets) ]
@@ -326,10 +356,17 @@ function create_folders(){
     mkdir -p ~/Targets/$TARGET/loot
     mkdir -p ~/Targets/$TARGET/exploits
     mkdir -p ~/Targets/$TARGET/scans
-	mkdir -p ~/Targets/$TARGET/ssh_keys
+    mkdir -p ~/Targets/$TARGET/ssh_keys
     echo alias target=\'cd ~/Targets/`echo $TARGET`\' > ~/.bash_aliases
     source ~/.bash_aliases
-    export TARGET=$TARGET
+    echo TARGET=$TARGET > ~/.TARGET
+    source ~/.TARGET
+    }
+    
+# Manually set the TARGET variable
+function set_target(){
+    echo TARGET=$1 > ~/.TARGET
+    source ~/.TARGET
     }
 
 # Add Host Record
