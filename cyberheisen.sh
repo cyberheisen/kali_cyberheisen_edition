@@ -19,6 +19,11 @@ sudo apt update
 printf "Upgrading packages\n"
 sudo DEBIAN_FRONTEND=noninteractive apt -y -q upgrade
 
+# Replace the xfce with kde-plasma
+sudo DEBIAN_FRONTEND=noninteractive apt -y -q install kali-desktop-kde
+sudo update-alternatives --config x-session-manager
+sudo apt purge --autoremove kali-desktop-xfce
+
 # install tools through apt
 printf "Installing software packages through apt\n"
 sudo DEBIAN_FRONTEND=noninteractive apt -y -q install rlwrap docker.io mingw-w64 \
@@ -48,6 +53,10 @@ printf "Installing Penelope Shell Handler\n"
 git clone https://github.com/brightio/penelope.git
 sudo cp ./penelope/penelope.py /sbin/penelope 
 sudo chmod +x /sbin/penelope
+
+#### python upload server ####
+printf "installing Python3 UploadServer
+sudo pip3 install uploadserver
 
 #### Nmap Output Parser ####
 printf "Installing Nmap Output Parser\n"
@@ -123,9 +132,9 @@ printf "Creating ~./TARGET file\n"
 touch ~/.TARGET
 
 ### Configure xfce4
-printf "Configuring xfce4 Settings\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
-7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
+#printf "Configuring xfce4 Settings\n"
+#curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
+#7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
 
 ### Configure Qterminal
 printf "Configuring Qterminal\n"
