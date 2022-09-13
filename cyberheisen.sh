@@ -160,5 +160,5 @@ printf "ssh keys generated\n"
 printf "Removing password based SSH authentication\n"
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 printf "Cyberheisen configuration complete.\n"
-printf "A system restart is required to enable the updated xfce4 settings\n."
+printf "A system restart is required to enable some settings\n."
 printf "Make sure to download the private key!!!!\n"
