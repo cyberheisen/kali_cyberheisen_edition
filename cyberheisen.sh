@@ -55,7 +55,7 @@ sudo cp ./penelope/penelope.py /sbin/penelope
 sudo chmod +x /sbin/penelope
 
 #### python upload server ####
-printf "installing Python3 UploadServer
+printf "installing Python3 UploadServer\n"
 sudo pip3 install uploadserver
 
 #### Nmap Output Parser ####
