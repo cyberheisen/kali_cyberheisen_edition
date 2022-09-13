@@ -4,11 +4,13 @@ A custom script for preparing a newly installed Kali Linux instance for CTF and 
 ### Installation ### 
 Simply copy, paste, and execute the command below.  
 ```
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/cyberheisen.sh --output ~/Downloads/cyberheisen.sh && sudo chmod +x ~/Downloads/cyberheisen.sh && ~/Downloads/cyberheisen.sh  
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-plasma/cyberheisen.sh --output ~/Downloads/cyberheisen.sh && sudo chmod +x ~/Downloads/cyberheisen.sh && ~/Downloads/cyberheisen.sh  
 ```
 ### RELEASE NOTES ###
 
 ## Features ## 
+* The default xfce interface is replaced with KDE Plasma
+
 * The shell prompt has been modified with coloring to differentiate from user and host names.  It also displays the targeted host and has optional date and time stamps.  
 
 * Web server root created in `/var/www/server`   
@@ -87,6 +89,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
 * pspy32
 * pspy64
 * python-pip-whl  
+* python3 uploadserver
 * python3-pip  
 * python3-requests  
 * python3-pyftpdlib  
@@ -94,7 +97,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main
 * python3-scapy  
 * python3-venv  
 * rlwrap  
-* Penelope Shell Handler  
+* Penelope Shell Handler
 * virtualenv  
 * xrdp  
 * wine64  
