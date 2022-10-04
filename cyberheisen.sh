@@ -24,6 +24,7 @@ printf "Installing software packages through apt\n"
 sudo DEBIAN_FRONTEND=noninteractive apt -y -q install rlwrap docker.io mingw-w64 \
 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-dev python3-pip python3-pylint-common \
 python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib wine64
+#need to add xfreerdp
 
 
 ### Webserver/FTPserver 
