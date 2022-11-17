@@ -105,10 +105,10 @@ curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/kde-plasma/r
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
 ### Configure Burp
-printf "Configuring Burpsuite\n"
-printf "....Intercept will no longer be enabled at startup"
-mkdir -p ~/.config/burpsuite
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/kde-plasma/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
+# printf "Configuring Burpsuite\n"
+# printf "....Intercept will no longer be enabled at startup"
+# mkdir -p ~/.config/burpsuite
+# curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/kde-plasma/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
 
 ### Configure Flameshot
 printf "Configuring Flameshot\n"
