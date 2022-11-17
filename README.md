@@ -9,6 +9,8 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-
 ### RELEASE NOTES ###
 
 ## Features ## 
+* This installation assumes a 64b installation  
+
 * The default xfce interface is replaced with KDE Plasma
 
 * The shell prompt has been modified with coloring to differentiate from user and host names.  It also displays the targeted host and has optional date and time stamps.  
@@ -27,12 +29,11 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-
 * Qterminal tabs will open in the current working directory
 * The Firefox FoxyProxy extension is installed and configured for Burp on localhost:8080  
 * The Firefox bookmarks toolbar is configured with relevant bookmarks  
-* BurpSuite is configured to start WITHOUT the proxy intercept enabled   
 * Flameshot is installed and configured for use with the 'prt screen' key  
     * Screenshots are automatically stored in `~/Pictures/Screenshots`  
     * Screenshots are automatically placed on the clipboard      
 * Burpsuite and Joplin shortcuts added to the xfce4 panel    
-* The rockyou.txt workdlist is uncompresssed  
+* The rockyou.txt wordlist is uncompresssed  
 * OneRuletoRuleThemAll is downloaded to the `/usr/share/haschat/rules` folder  
 * SSH keys are generated and SSH password authentication disabled  
 
@@ -99,6 +100,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-
 * rlwrap  
 * Penelope Shell Handler
 * virtualenv  
+* vscode  
 * xrdp  
 * wine64  
 * WinPEAS  
