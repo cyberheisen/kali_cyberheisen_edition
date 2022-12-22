@@ -294,7 +294,7 @@ alias downloads='cd ~/Downloads'
 alias lll='ls -last --color=auto'
 alias nano='nano -m'  #start nano with mouse support
 alias refresh='source ~/.zshrc'
-alias here='dolphin .' #open gui file manager in current directory from terminal
+alias here='dolphin .&' #open gui file manager in current directory from terminal
 alias scan='nmap -A -p- -Pn -vvv -oA ~/Targets/$TARGET/scans/$TARGET $TARGET'
 alias ports='/sbin/nmap-parse-output ~/Targets/$TARGET/scans/$TARGET.xml ports'
 alias virtualenv2='virtualenv -p /bin/python2 ./python2venv && source ./python2venv/bin/activate
