@@ -30,7 +30,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y -q install rlwrap docker.io mingw-w64
 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-dev python3-pip python3-pylint-common \
 python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib wine64
 
-
 ### Webserver/FTPserver 
 printf "Creating webserver/ftp server folder structure\n"
 sudo mkdir -p $WEBSERVER $WEBSERVER/linux $WEBSERVER/windows $WEBSERVER/transfer
@@ -51,7 +50,6 @@ sudo curl -L https://raw.githubusercontent.com/carlospolop/PEASS-ng/master/linPE
 sudo chmod +x /usr/share/linPEAS
 # Create links to the webserver
 sudo ln -s /usr/share/linPEAS/linpeas.sh /var/www/server/linux/linpeas.sh
-
 
 #### Penelope Shell Handler ####
 printf "Installing Penelope Shell Handler\n"
@@ -109,12 +107,6 @@ printf "Configuring Firefox\n"
 curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/kde-plasma/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
-### Configure Burp
-# printf "Configuring Burpsuite\n"
-# printf "....Intercept will no longer be enabled at startup"
-# mkdir -p ~/.config/burpsuite
-# curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/kde-plasma/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
-
 ### Configure Flameshot
 printf "Configuring Flameshot\n"
 printf ".....'print scr' key to execute flameshot\n"
@@ -144,7 +136,6 @@ touch ~/.TARGET
 ### Configure Qterminal
 printf "Configuring Qterminal\n"
 sed -i "s/UseCWD=false/UseCWD=true/g" ~/.config/qterminal.org/qterminal.ini
-
 
 ### Wordlists
 # unzip rockyou.txt
