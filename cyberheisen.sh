@@ -26,12 +26,16 @@ virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-dev python3-
 python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib wine64
 #need to add xfreerdp
 
-
 ### Webserver/FTPserver 
 printf "Creating webserver/ftp server folder structure\n"
 sudo mkdir -p $WEBSERVER $WEBSERVER/linux $WEBSERVER/windows $WEBSERVER/transfer
 
 ### install other tools
+
+### VSCode ###
+printf "Installing VSCode\n"
+sudo curl -L https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -o /$SETUPFOLDER//code_amd64.deb
+sudo apt install $SETUPFOLDER/code_amd64.deb -y
 
 #### The Peas ####
 printf "Downloading WinPEAS\n"
