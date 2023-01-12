@@ -153,7 +153,7 @@ ssh-keygen -N "" -f $HOME/.ssh/id_rsa
 cp $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys
 printf "ssh keys generated\n"
 printf "Removing password based SSH authentication\n"
-sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+sudo sed -i 's/PasswordAuthentication yes/#PasswordAuthentication no/g' /etc/ssh/sshd_config
 printf "Configure SSH server to start on boot\n"
 sudo systemctl enable ssh
 printf "Starting SSH Server\n"
