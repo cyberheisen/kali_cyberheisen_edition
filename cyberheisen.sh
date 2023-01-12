@@ -33,9 +33,9 @@ sudo mkdir -p $WEBSERVER $WEBSERVER/linux $WEBSERVER/windows $WEBSERVER/transfer
 ### install other tools
 
 ### VSCode ###
-printf "Installing VSCode\n"
-sudo curl -L https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -o /$SETUPFOLDER//code_amd64.deb
-sudo apt install $SETUPFOLDER/code_amd64.deb -y
+# printf "Installing VSCode\n"
+# sudo curl -L https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -o /$SETUPFOLDER//code_amd64.deb
+# sudo apt install $SETUPFOLDER/code_amd64.deb -y
 
 #### The Peas ####
 printf "Downloading WinPEAS\n"
@@ -50,13 +50,14 @@ sudo ln -s /usr/share/linPEAS/linpeas.sh /var/www/server/linux/linpeas.sh
 
 #### Penelope Shell Handler ####
 printf "Installing Penelope Shell Handler\n"
-git clone https://github.com/brightio/penelope.git
+cd /usr/share
+sudo git clone https://github.com/brightio/penelope.git
 sudo cp ./penelope/penelope.py /sbin/penelope 
 sudo chmod +x /sbin/penelope
 
 #### Nmap Output Parser ####
 printf "Installing Nmap Output Parser\n"
-git clone https://github.com/ernw/nmap-parse-output.git
+sudo git clone https://github.com/ernw/nmap-parse-output.git
 sudo cp ./nmap-parse-output/nmap-parse-output /sbin/nmap-parse-output 
 sudo chmod +x /sbin/nmap-parse-output
 
@@ -76,7 +77,7 @@ sudo ln -s /usr/share/pspy/pspy64 $WEBSERVER/linux/pspy64
 printf "Creating additional necessary file links for the webserver\n"
 sudo ln -s /bin/nc $WEBSERVER/linux/nc
 sudo ln -s /usr/share/windows-binaries $WEBSERVER/windows/tools
-chmod -R 777 /var/www/server
+sudo chmod -R 777 /var/www/server
 
 ### System Configurations
 
@@ -97,20 +98,20 @@ printf "FoxyProxy Installed"
 
 ### Configure Firefox
 printf "Configuring Firefox\n"
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
 
-### Configure Burp
-printf "Configuring Burpsuite\n"
-printf "....Intercept will no longer be enabled at startup"
-mkdir -p ~/.config/burpsuite
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
+# ### Configure Burp
+# printf "Configuring Burpsuite\n"
+# printf "....Intercept will no longer be enabled at startup"
+# mkdir -p ~/.config/burpsuite
+# curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
 
 ### Configure Flameshot
 printf "Configuring Flameshot\n"
 printf ".....'print scr' key to execute flameshot\n"
 printf ".....screenshots automatically saved to ~/Pictures/Screenshots folder, and to clipboard\n"
-curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/11182021/resources/flameshot_settings.7z --output $SETUPFOLDER/flameshot_settings.7z
+curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/flameshot_settings.7z --output $SETUPFOLDER/flameshot_settings.7z
 7z x $SETUPFOLDER/flameshot_settings.7z -o$HOME/.config -aoa
 mkdir -p $HOME/Pictures/Screenshots
 
@@ -120,16 +121,16 @@ printf "backup original Zshell configuration files\n"
 mv $HOME/.zshrc .zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/.zshrc --output ~/.zshrc
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/.zshrc --output ~/.zshrc
 sudo cp $HOME/.zshrc /root/.zshrc
 
 ### Create Dynamic Target File
 printf "Creating ~./TARGET file\n"
 touch ~/.TARGET
 
-### Configure xfce4
+# ### Configure xfce4
 printf "Configuring xfce4 Settings\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/11182021/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
 7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
 
 ### Configure Qterminal
@@ -158,3 +159,6 @@ sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/
 printf "Cyberheisen configuration complete.\n"
 printf "A system restart is required to enable the updated xfce4 settings\n."
 printf "Make sure to download the private key!!!!\n"
+
+### reset zsh
+source /home/kali/.zshrc
