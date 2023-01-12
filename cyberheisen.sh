@@ -129,14 +129,13 @@ printf "Creating ~./TARGET file\n"
 touch ~/.TARGET
 
 # ### Configure xfce4
-printf "Configuring xfce4 Settings\n"
-curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
-7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
+# printf "Configuring xfce4 Settings\n"
+# curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/xfce4_settings.7z --output $SETUPFOLDER/xfce4_settings.7z
+# 7z x $SETUPFOLDER/xfce4_settings.7z -o$HOME/.config -aoa
 
 ### Configure Qterminal
 printf "Configuring Qterminal\n"
 sed -i "s/UseCWD=false/UseCWD=true/g" ~/.config/qterminal.org/qterminal.ini
-
 
 ### Wordlists
 # unzip rockyou.txt
