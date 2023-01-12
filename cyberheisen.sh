@@ -162,6 +162,7 @@ printf "Make sure to download the private key!!!!\n"
 
 ### Configure RDP
 printf "Configuring Remote Desktop Service\n"
+sudo sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
 sudo systemctl enable xrdp
 sudo systemctl start xrdp
 
