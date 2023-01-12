@@ -24,7 +24,6 @@ printf "Installing software packages through apt\n"
 sudo DEBIAN_FRONTEND=noninteractive apt -y -q install rlwrap docker.io mingw-w64 \
 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-dev python3-pip python3-pylint-common \
 python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib wine64
-#need to add xfreerdp
 
 ### Webserver/FTPserver 
 printf "Creating webserver/ftp server folder structure\n"
@@ -34,8 +33,8 @@ sudo mkdir -p $WEBSERVER $WEBSERVER/linux $WEBSERVER/windows $WEBSERVER/transfer
 
 ### VSCode ###
 # printf "Installing VSCode\n"
-# sudo curl -L https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -o /$SETUPFOLDER//code_amd64.deb
-# sudo apt install $SETUPFOLDER/code_amd64.deb -y
+sudo curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o /$SETUPFOLDER//code_amd64.deb
+sudo apt install $SETUPFOLDER/code_amd64.deb -y
 
 #### The Peas ####
 printf "Downloading WinPEAS\n"
@@ -155,8 +154,16 @@ cp $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys
 printf "ssh keys generated\n"
 printf "Removing password based SSH authentication\n"
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
-
+printf "Configure SSH server to start on boot\n"
+sudo systemctl enable ssh
+printf "Starting SSH Server\n"
+sudo systemctl start ssh
 printf "Make sure to download the private key!!!!\n"
+
+### Configure RDP
+printf "Configuring Remote Desktop Service\n"
+sudo systemctl enable xrdp
+sudo systemctl start xrdp
 
 ### reset zsh
 printf "Resetting Terminal\n"
