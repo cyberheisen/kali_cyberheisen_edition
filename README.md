@@ -3,9 +3,15 @@ A custom script for preparing a newly installed Kali Linux instance for CTF and 
 
 ### Installation ### 
 Simply copy, paste, and execute the command below.  
+**For xfce4**  
 ```
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/cyberheisen.sh --output ~/Downloads/cyberheisen.sh && sudo chmod +x ~/Downloads/cyberheisen.sh && ~/Downloads/cyberheisen.sh  
 ```
+**For kde-plasma**  
+```
+curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-plasma/cyberheisen.sh --output ~/Downloads/cyberheisen.sh && sudo chmod +x ~/Downloads/cyberheisen.sh && ~/Downloads/cyberheisen.sh  
+```
+
 ### RELEASE NOTES ###
 
 ## Features ## 
