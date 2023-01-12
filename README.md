@@ -1,4 +1,4 @@
-# kali_cyberheisen_edition
+# kali_cyberheisen_edition - KDE Plasma
 A custom script for preparing a newly installed Kali Linux instance for CTF and pentesting.  The script should be executed after the default installation of Kali finishes.
 
 ### Installation ### 
