@@ -307,8 +307,6 @@ alias loot='cd /home/kali/Targets/$TARGET/loot'
 alias scans='cd /home/kali/Targets/$TARGET/scans'
 alias ssh_keys='cd /home/kali/Targets/$TARGET/ssh_keys'
 
-
-
 # Sharing aliases
 alias webserver='sudo python3 -m http.server --directory $WEBSERVER'
 alias webserverhere='sudo python3 -m http.server'
@@ -317,6 +315,8 @@ alias smbserverhere='impacket-smbserver -smb2support SERVER .'
 #alias ftpserver='sudo python3 -m pyftpdlib -p 21 --write --directory $WEBSERVER'
 #alias ftpserverhere='sudo python3 -m ftpdlib -p 21 --write --directory .'
 
+# Tool aliases
+alias vmreset='sudo reset-vm-tools'
 
 ###Custom Functions#####
 
