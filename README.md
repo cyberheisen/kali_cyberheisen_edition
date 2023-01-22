@@ -105,6 +105,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-
 * xrdp  
 * wine64  
 * WinPEAS  
+* Visual Studio Code
 
 
   
