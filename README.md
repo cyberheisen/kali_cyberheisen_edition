@@ -31,12 +31,11 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-
 * Qterminal tabs will open in the current working directory
 * The Firefox FoxyProxy extension is installed and configured for Burp on localhost:8080  
 * The Firefox bookmarks toolbar is configured with relevant bookmarks  
-* BurpSuite is configured to start WITHOUT the proxy intercept enabled   
 * Flameshot is installed and configured for use with the 'prt screen' key  
     * Screenshots are automatically stored in `~/Pictures/Screenshots`  
     * Screenshots are automatically placed on the clipboard      
 * Burpsuite and Joplin shortcuts added to the xfce4 panel    
-* The rockyou.txt workdlist is uncompresssed  
+* The rockyou.txt wordlist is uncompresssed  
 * OneRuletoRuleThemAll is downloaded to the `/usr/share/haschat/rules` folder  
 * SSH keys are generated and SSH password authentication disabled  
 
