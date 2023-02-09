@@ -23,7 +23,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y -q full-upgrade
 printf "Installing software packages through apt\n"
 sudo DEBIAN_FRONTEND=noninteractive apt -y -q install rlwrap docker.io mingw-w64 \
 virtualenv xrdp flameshot htop joplin jq gobuster krb5-user python3-dev python3-pip python3-pylint-common \
-python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib wine64
+python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib xxd wine64
 
 ### Webserver/FTPserver 
 printf "Creating webserver/ftp server folder structure\n"
