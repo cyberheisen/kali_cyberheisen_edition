@@ -38,10 +38,10 @@ sudo apt install $SETUPFOLDER/code_amd64.deb -y
 
 #### The Peas ####
 printf "Downloading WinPEAS\n"
-sudo curl -L https://github.com/carlospolop/PEASS-ng/blob/master/winPEAS/winPEASexe/binaries/x64/Release/winPEASx64.exe -o /usr/share/windows-binaries/winPEASx64.exe
-sudo curl -L https://github.com/carlospolop/PEASS-ng/blob/master/winPEAS/winPEASexe/binaries/x86/Release/winPEASx86.exe -o /usr/share/windows-binaries/winPEASx86.exe
+sudo curl -L https://github.com/carlospolop/PEASS-ng/releases/download/20230419-58ad97a0/winPEASx64.exe -o /usr/share/windows-binaries/winPEASx64.exe
+sudo curl -L https://github.com/carlospolop/PEASS-ng/releases/download/20230419-58ad97a0/winPEASx86.exe -o /usr/share/windows-binaries/winPEASx86.exe
 sudo mkdir /usr/share/linPEAS
-sudo curl -L https://raw.githubusercontent.com/carlospolop/PEASS-ng/master/linPEAS/linpeas.sh -o /usr/share/linPEAS/linpeas.sh
+sudo curl -L https://github.com/carlospolop/PEASS-ng/releases/download/20230419-58ad97a0/linpeas.sh -o /usr/share/linPEAS/linpeas.sh
 sudo chmod +x /usr/share/linPEAS
 # Create links to the webserver
 sudo ln -s /usr/share/linPEAS/linpeas.sh /var/www/server/linux/linpeas.sh
