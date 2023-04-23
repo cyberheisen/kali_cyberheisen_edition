@@ -70,14 +70,15 @@ sudo chmod +x /sbin/nmap-parse-output
 #### Evil-WinRM
 sudo gem install evil-winrm
 
-#### Pspy
+#### Pspy (to fix)
 printf "installing pspy\n"
 sudo mkdir /usr/share/pspy
-sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 --output /usr/share/pspy/pspy32
-sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 --output /usr/share/pspy/pspy64
+sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 --o /usr/share/pspy/pspy32
+sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 --o /usr/share/pspy/pspy64
 sudo chmod 755 /usr/share/pspy 
 sudo ln -s /usr/share/pspy/pspy32 $WEBSERVER/linux/pspy32
 sudo ln -s /usr/share/pspy/pspy64 $WEBSERVER/linux/pspy64
+
 
 ### Web Server Links
 printf "Creating additional necessary file links for the webserver\n"
