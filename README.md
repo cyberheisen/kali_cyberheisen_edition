@@ -84,6 +84,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-
 * FoxyProxy  
 * gobuster  
 * htop  
+* jd-gui  
 * Joplin   
 * jq  
 * krb5-user  
