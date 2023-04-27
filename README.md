@@ -78,6 +78,7 @@ curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/kde-
   
   ### Additional Tools Installed ###
 
+* cyberchef  
 * docker  
 * Evil-WinRM  
 * flameshot  
