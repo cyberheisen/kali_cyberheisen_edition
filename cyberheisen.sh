@@ -21,7 +21,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y -q full-upgrade
 
 # install tools through apt
 printf "Installing software packages through apt\n"
-sudo DEBIAN_FRONTEND=noninteractive apt -y -q install apt-offline rlwrap docker.io mingw-w64 \
+sudo DEBIAN_FRONTEND=noninteractive apt -y -q install apt-offline cyberchef rlwrap docker.io mingw-w64 \
 virtualenv xrdp flameshot htop jd-gui joplin jq gobuster krb5-user python3-dev python3-pip python3-pylint-common \
 python3-requests python3-scapy python3-venv python3-pip-whl python3-pyftpdlib xxd wine64
 
