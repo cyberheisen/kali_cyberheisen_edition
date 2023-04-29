@@ -69,8 +69,8 @@ sudo gem install evil-winrm
 #### Pspy (to fix)
 printf "installing pspy\n"
 sudo mkdir /usr/share/pspy
-sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 --o /usr/share/pspy/pspy32
-sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 --o /usr/share/pspy/pspy64
+sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 --output /usr/share/pspy/pspy32
+sudo curl https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 --output /usr/share/pspy/pspy64
 sudo chmod 755 /usr/share/pspy 
 sudo ln -s /usr/share/pspy/pspy32 $WEBSERVER/linux/pspy32
 sudo ln -s /usr/share/pspy/pspy64 $WEBSERVER/linux/pspy64
@@ -114,7 +114,7 @@ mkdir -p $HOME/Pictures/Screenshots
 ### Configure .zshrc
 printf "Configuring Zshell\n"
 printf "backup original Zshell configuration files\n"
-mv $HOME/.zshrc .zshrc.orig.bak
+mv $HOME/.zshrc $HOME/.zshrc.orig.bak
 sudo mv /root/.zshrc /root/.zshrc.bak
 printf "downloading configuration file\n"
 curl https://raw.githubusercontent.com/cyberheisen/kali_cyberheisen_edition/main/resources/.zshrc --output ~/.zshrc
