@@ -33,7 +33,7 @@ sudo mkdir -p $WEBSERVER $WEBSERVER/linux $WEBSERVER/windows $WEBSERVER/transfer
 
 ### VSCode ###
 # printf "Installing VSCode\n"
-sudo curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o /$SETUPFOLDER//code_amd64.deb
+sudo curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o /$SETUPFOLDER/code_amd64.deb
 sudo apt install $SETUPFOLDER/code_amd64.deb -y
 
 #### The Peas ####
@@ -46,13 +46,16 @@ sudo chmod +x /usr/share/linPEAS
 # Create links to the webserver
 sudo ln -s /usr/share/linPEAS/linpeas.sh /var/www/server/linux/linpeas.sh
 
-
 #### Penelope Shell Handler ####
 printf "Installing Penelope Shell Handler\n"
 cd /usr/share
 sudo git clone https://github.com/brightio/penelope.git
 sudo cp ./penelope/penelope.py /sbin/penelope 
 sudo chmod +x /sbin/penelope
+
+#### python upload server ####
+printf "installing Python3 UploadServer\n"
+sudo pip3 install uploadserver
 
 #### Nmap Output Parser ####
 printf "Installing Nmap Output Parser\n"
@@ -99,12 +102,6 @@ printf "FoxyProxy Installed"
 printf "Configuring Firefox\n"
 curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/mozilla_settings.7z --output $SETUPFOLDER/mozilla_settings.7z
 7z x $SETUPFOLDER/mozilla_settings.7z -o$HOME/ -aoa
-
-# ### Configure Burp
-# printf "Configuring Burpsuite\n"
-# printf "....Intercept will no longer be enabled at startup"
-# mkdir -p ~/.config/burpsuite
-# curl -L https://github.com/cyberheisen/kali_cyberheisen_edition/raw/main/resources/burp_settings.json --output $HOME/.config/burpsuite/burp_settings.json
 
 ### Configure Flameshot
 printf "Configuring Flameshot\n"
@@ -153,12 +150,11 @@ ssh-keygen -N "" -f $HOME/.ssh/id_rsa
 cp $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys
 printf "ssh keys generated\n"
 printf "Removing password based SSH authentication\n"
-sudo sed -i 's/PasswordAuthentication yes/#PasswordAuthentication no/g' /etc/ssh/sshd_config
-printf "Configure SSH server to start on boot\n"
-sudo systemctl enable ssh
-printf "Starting SSH Server\n"
-sudo systemctl start ssh
+sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+printf "Cyberheisen configuration complete.\n"
+printf "A system restart is required to enable some settings\n."
 printf "Make sure to download the private key!!!!\n"
+
 
 ### Configure RDP
 printf "Configuring Remote Desktop Service\n"
