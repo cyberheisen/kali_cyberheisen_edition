@@ -267,8 +267,7 @@ source ~/.TARGET
 
 #Overwrite the left prompt
 #PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
-PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-%F{red}[$TARGET]%B%F{reset}-[%(6~.%-1~/…/%4~.%5~)]%b%F{%(#.blue.green)}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
-
+#PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%F{%(#.red.blue)}%n$prompt_symbol%B%F{green}%m%b%F{%(#.blue.green)})-%F{red}[$TARGET]%B%F{reset}-[%(6~.%-1~/…/%4~.%5~)]%b%F{%(#.blue.green)}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 
 # Overwrite the right prompt with the date and time stamp.
 #RPROMPT="%F{green}[%D %*]"
@@ -295,7 +294,7 @@ alias downloads='cd ~/Downloads'
 alias lll='ls -last --color=auto'
 alias nano='nano -m'  #start nano with mouse support
 alias refresh='source ~/.zshrc'
-alias here='thunar .' #open gui file manager in current directory from terminal
+alias here='dolphin .&' #open gui file manager in current directory from terminal
 alias scan='nmap -A -p- -Pn -vvv -oA ~/Targets/$TARGET/scans/$TARGET $TARGET'
 alias ports='/sbin/nmap-parse-output ~/Targets/$TARGET/scans/$TARGET.xml ports'
 alias virtualenv2='virtualenv -p /bin/python2 ./python2venv && source ./python2venv/bin/activate
@@ -307,6 +306,8 @@ alias loot='cd /home/kali/Targets/$TARGET/loot'
 alias scans='cd /home/kali/Targets/$TARGET/scans'
 alias ssh_keys='cd /home/kali/Targets/$TARGET/ssh_keys'
 
+
+
 # Sharing aliases
 alias webserver='sudo python3 -m http.server --directory $WEBSERVER'
 alias webserverhere='sudo python3 -m http.server'
@@ -315,8 +316,6 @@ alias smbserverhere='impacket-smbserver -smb2support SERVER .'
 #alias ftpserver='sudo python3 -m pyftpdlib -p 21 --write --directory $WEBSERVER'
 #alias ftpserverhere='sudo python3 -m ftpdlib -p 21 --write --directory .'
 
-# Tool aliases
-alias vmreset='sudo reset-vm-tools'
 
 ###Custom Functions#####
 
