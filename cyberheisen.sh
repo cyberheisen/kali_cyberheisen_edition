@@ -32,7 +32,7 @@ sudo mkdir -p $WEBSERVER $WEBSERVER/linux $WEBSERVER/windows $WEBSERVER/transfer
 ### install other tools
 
 ### VSCode ###
-# printf "Installing VSCode\n"
+printf "Installing VSCode\n"
 sudo curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o /$SETUPFOLDER/code_amd64.deb
 sudo apt install $SETUPFOLDER/code_amd64.deb -y
 
